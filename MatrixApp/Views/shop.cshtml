@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "shop";
+}
+
+
+<style>
+        #tblContainer, #tblcollections, #tblCRUD, td {
+            border: double;
+        }
+
+        th {
+            background-color: darkgray;
+        }
+
+        #dvcollection {
+            height: 500px;
+            overflow-y: scroll;
+        }
+</style>
+
+
+
+<h2> CRUD Operations on a shop</h2>
+
+<table id=" tblContainer" ng-controller=" newshopController">
+    <tbody>
+        <tr>
+            <td>
+                <table id=" tblCRUD">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>Id</span>
+                            </td>
+                            <td>
+                                <input type="text" id=" Id " readonly="readonly" ng-model="Id">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Name</span>
+                            </td>
+                            <td>
+                                <input type="text" id="Name" required ng-model="Name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>NoInStock</span>
+                            </td>
+                            <td>
+                                <input type="text" id="NoInStock" required ng-model="NoInStock">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Price</span>
+                            </td>
+                            <td>
+                                <input type="text" id="Price" required ng-model="Price">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Supplier</span>
+                            </td>
+                            <td>
+                                <input type="text" id="Supplier" required ng-model="Supplier">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" id="new" value="New" ng-click="clear()">
+                            </td>
+                            <td>
+                                <input type="button" id="save" value="Save" ng-click="save()">
+                            </td>
+                            <td>
+                                <input type="button" id="delete"value="Delete" ng-click="delete()">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>{{Message}}</div>
+            </td>
+            <td>
+                <div id="dvcollection">
+                    <table id="tblcollections">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>NoInStock</th>
+                                <th>Price</th>
+                                <th>Supplier</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="product in products">
+                            <tr ng-click="get(product)">
+                                <td> <span>{{product.Id}}</span></td>
+                                <td> <span>{{Product.Name}}</span></td>
+                                <td> <span>{{Product.NoInStock}}</span></td>
+                                <td> <span>{{Product.Price}}</span></td>
+                                <td> <span>{{Product.Supplier}}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<script src=" ~/Scripts/angular.js"></script>
+<script src=" ~/Scripts/angular-route.js"></script>
+<script src=" ~/Scripts/app/newmodule.js"></script>
+<script src=" ~/Scripts/app/newservice.js"></script>
+<script src=" ~/Scripts/app/newshopController.js"></script>
